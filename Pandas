@@ -1,0 +1,25 @@
+import pandas as pd
+
+# Create a sample dataset
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Emily'],
+    'Age': [25, 30, 35, 40, 45],
+    'Gender': ['Female', 'Male', 'Male', 'Male', 'Female'],
+    'Salary': [50000, 60000, 70000, 80000, 90000],
+    'Department': ['HR', 'IT', 'Finance', 'IT', 'Finance']
+}
+
+# Convert data to a Pandas DataFrame
+df = pd.DataFrame(data)
+
+# Use Pandas groupby and aggregation functions for multidimensional data analysis
+# For example, calculate the average salary by department
+avg_salary_by_department = df.groupby('Department')['Salary'].mean()
+print("Average Salary by Department:")
+print(avg_salary_by_department)
+print()
+
+# Calculate the average age by gender and department
+avg_age_by_gender_department = df.groupby(['Gender', 'Department'])['Age'].mean()
+print("Average Age by Gender and Department:")
+print(avg_age_by_gender_department)
